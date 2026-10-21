@@ -1,0 +1,152 @@
+#separator:Comma
+#html:false
+#tags column:3
+#deck:Statistics for Data Science
+Sample space,The set Ω of all possible outcomes of an experiment.,Probability
+Event,A subset of the sample space: a set of outcomes to which we can assign a probability.,Probability
+Independence,Events A and B are independent if P(A∩B) = P(A)P(B); learning that one occurred does not change the probability of the other.,Probability
+Conditional probability,P(A|B) = P(A∩B)/P(B) (for P(B) > 0): the probability of A given that B has occurred.,Probability
+Law of total probability,"If B1,…,Bk partition the sample space, then P(A) = Σ_i P(A|Bi)P(Bi).",Probability
+Bayes' theorem,P(A|B) = P(B|A)P(A)/P(B). For a partition: P(Ai|B) = P(B|Ai)P(Ai) / Σ_j P(B|Aj)P(Aj).,Probability
+Random variable,"A function X that maps each outcome in the sample space to a real number, so we can talk about probabilities of numerical events such as {X ≤ x}. Used to model uncertain quantities such as data, measurements or parameters.",Probability
+Cumulative distribution function (CDF),"F_X(x) = P(X ≤ x). Non-decreasing, right-continuous, going from 0 to 1; defined for both discrete and continuous variables.",Probability
+Probability mass function (PMF),"For a discrete random variable, f_X(x) = P(X = x).",Probability
+Probability density function (PDF),"For a continuous random variable, a function f with P(a < X < b) = ∫_a^b f(x)dx; it is the derivative of the CDF. f(x) itself is not a probability.",Probability
+Common discrete and continuous distributions,"Standard parametric families used as building blocks. Discrete: Bernoulli, Binomial, Poisson, Geometric, Categorical. Continuous: Uniform, Normal, Exponential, Gamma, Beta, Student's t, χ².",Probability
+"Joint, marginal and conditional distributions","Joint f(x,y): distribution of (X,Y) together. Marginal: f_X(x) = Σ_y f(x,y) (or ∫ f(x,y)dy). Conditional: f(y|x) = f(x,y)/f_X(x).",Probability
+Independent random variables,"X and Y are independent if P(X∈A, Y∈B) = P(X∈A)P(Y∈B) for all A, B; equivalently f(x,y) = f_X(x)f_Y(y).",Probability
+IID random variables,Independent and identically distributed: independent random variables that all have the same distribution. The standard model of a random sample.,Probability
+Expectation and its basic properties,"E[X] = Σ x f(x) (or ∫ x f(x)dx): the mean, or long-run average, of X. It is linear: E[aX + bY + c] = aE[X] + bE[Y] + c, and E[XY] = E[X]E[Y] if X, Y are independent.",Expectation
+Variance,Var(X) = E[(X − E[X])²] = E[X²] − (E[X])². Measures spread; Var(aX + b) = a²Var(X).,Expectation
+Sample mean and sample variance,X̄ = (1/n)ΣXi and S² = (1/(n−1))Σ(Xi − X̄)². Unbiased estimators of E[X] and Var(X) for IID data.,Expectation
+Covariance and correlation,"Cov(X,Y) = E[(X−μ_X)(Y−μ_Y)]. Correlation ρ = Cov(X,Y)/(σ_X σ_Y) lies in [−1, 1] and measures linear dependence.",Expectation
+Expectations and covariances with matrices,For a random vector X with mean μ and covariance matrix Σ: E[AX + b] = Aμ + b and Cov(AX + b) = AΣAᵀ. Σ is symmetric and positive semidefinite.,Expectation
+Conditional expectation,"E[Y|X=x] = ∫ y f(y|x)dy: the mean of Y given X. E[Y|X] is itself a random variable, and the law of total expectation says E[E[Y|X]] = E[Y].",Expectation
+Properties of the multivariate Normal,"Fully determined by mean μ and covariance Σ. Linear transformations are Normal (AX+b ~ N(Aμ+b, AΣAᵀ)); marginals and conditionals are Normal; uncorrelated components are independent.",Expectation
+Markov's inequality,For X ≥ 0 and t > 0: P(X ≥ t) ≤ E[X]/t.,Convergence_and_Statistical_Inference_Basics
+Chebyshev's inequality,"P(|X − μ| ≥ t) ≤ σ²/t², where μ = E[X] and σ² = Var(X).",Convergence_and_Statistical_Inference_Basics
+Convergence in probability,"Xn → X in probability if for every ε > 0, P(|Xn − X| > ε) → 0 as n → ∞.",Convergence_and_Statistical_Inference_Basics
+Convergence in distribution,Xn converges in distribution to X if F_n(t) → F(t) at every point t where F is continuous.,Convergence_and_Statistical_Inference_Basics
+Law of large numbers,"For IID Xi with finite mean μ, the sample mean X̄n converges in probability to μ.",Convergence_and_Statistical_Inference_Basics
+Central Limit Theorem,"For IID Xi with mean μ and variance σ², √n(X̄n − μ)/σ converges in distribution to N(0,1); so X̄n is approximately N(μ, σ²/n) for large n.",Convergence_and_Statistical_Inference_Basics
+Statistical model,"A set of distributions (or densities) assumed to contain the one that generated the data. Parametric if indexed by finitely many parameters, nonparametric otherwise.",Convergence_and_Statistical_Inference_Basics
+Estimator,"A function of the data, θ̂n = g(X1,…,Xn), used to estimate a quantity of interest. It is itself a random variable.",Convergence_and_Statistical_Inference_Basics
+Bias and consistency,Bias = E[θ̂] − θ. An estimator is consistent if θ̂n converges in probability to the true θ as n grows.,Convergence_and_Statistical_Inference_Basics
+Sampling distribution and standard error,The sampling distribution is the distribution of an estimator over repeated samples; the standard error se(θ̂) is its standard deviation.,Convergence_and_Statistical_Inference_Basics
+Bias-variance decomposition,MSE = E[(θ̂ − θ)²] = bias² + Var(θ̂).,Convergence_and_Statistical_Inference_Basics
+Confidence set,"A random set Cn that contains the true parameter with probability at least 1−α for all parameter values. In 1D, a confidence interval. The 1−α refers to coverage over repeated experiments, not the probability that θ lies in this particular interval.",Nonparametric_Estimation_and_the_Bootstrap
+Nonparametric estimation of the CDF,"The empirical CDF F̂n(x) = (1/n)Σ I(Xi ≤ x), which puts mass 1/n on each observation. It converges uniformly to the true CDF (Glivenko–Cantelli) and the DKW inequality bounds its error.",Nonparametric_Estimation_and_the_Bootstrap
+Plug-in estimator,"Estimates a summary T(F) of the CDF by T(F̂n). Examples: sample mean, sample variance and sample quantiles.",Nonparametric_Estimation_and_the_Bootstrap
+Normal-based confidence interval,"θ̂ ± z_{α/2}·se, valid when θ̂ is approximately Normal. For 95% confidence, θ̂ ± 1.96·se.",Nonparametric_Estimation_and_the_Bootstrap
+Bootstrap,"Estimates standard errors and confidence intervals by repeatedly resampling the data with replacement (i.e. sampling from F̂n), recomputing the statistic each time and using the spread of the replicates.",Nonparametric_Estimation_and_the_Bootstrap
+Bootstrap approximations and limitations,"Two approximations: F̂n ≈ F, and simulation error from using finite B resamples. It can fail for non-smooth statistics (e.g. the maximum), heavy tails, dependent data and very small samples.",Nonparametric_Estimation_and_the_Bootstrap
+Bootstrap Normal interval,"θ̂ ± z_{α/2}·se_boot, where se_boot is the standard deviation of the bootstrap replicates.",Nonparametric_Estimation_and_the_Bootstrap
+Bootstrap percentile interval,"(θ*_{α/2}, θ*_{1−α/2}): the α/2 and 1−α/2 quantiles of the bootstrap replicates.",Nonparametric_Estimation_and_the_Bootstrap
+Bootstrap pivotal interval,"Uses the bootstrap distribution of θ̂* − θ̂ to approximate that of θ̂ − θ: C = (2θ̂ − θ*_{1−α/2}, 2θ̂ − θ*_{α/2}).",Nonparametric_Estimation_and_the_Bootstrap
+Parametric model,A family of distributions {f(x;θ) : θ ∈ Θ} indexed by a finite number of parameters θ.,Parametric_Inference_I_Finding_Estimators
+Method of moments,"Set the first k population moments (functions of θ) equal to the corresponding sample moments and solve for θ. Simple and consistent, but not always efficient.",Parametric_Inference_I_Finding_Estimators
+Maximum likelihood estimation basics,"The likelihood is L(θ) = ∏ f(Xi;θ), viewed as a function of θ. The MLE θ̂ is the value that maximizes L(θ), equivalently the log-likelihood ℓ(θ).",Parametric_Inference_I_Finding_Estimators
+Computing the MLE,"Maximize the log-likelihood: where possible set the score (derivative of ℓ) to zero and solve analytically, otherwise use numerical optimization.",Parametric_Inference_I_Finding_Estimators
+Numerical optimization,"Iterative algorithms (e.g. Newton's method, gradient ascent) used to maximize or minimize a function when there is no closed-form solution. May get stuck in local optima.",Parametric_Inference_I_Finding_Estimators
+Gradient-based optimization and stochastic gradients,"Update θ ← θ + η∇ℓ(θ) with step size η. Stochastic gradient methods use the gradient on a random minibatch of data at each step: a cheap, noisy estimate of the full gradient.",Parametric_Inference_I_Finding_Estimators
+Properties of the maximum likelihood estimate (MLE),"Under regularity conditions the MLE is consistent, equivariant, asymptotically Normal and asymptotically optimal.",Parametric_Inference_II_Properties_of_Estimators
+Consistency (MLE),The MLE θ̂n converges in probability to the true parameter θ as n → ∞.,Parametric_Inference_II_Properties_of_Estimators
+Equivariance,"If θ̂ is the MLE of θ, then g(θ̂) is the MLE of g(θ).",Parametric_Inference_II_Properties_of_Estimators
+Asymptotic normality,"(θ̂ − θ)/se converges in distribution to N(0,1), where se ≈ 1/√(nI(θ)).",Parametric_Inference_II_Properties_of_Estimators
+Asymptotic optimality,"For large n, the MLE has the smallest asymptotic variance among well-behaved estimators (it attains the Cramér–Rao bound asymptotically); it is asymptotically efficient.",Parametric_Inference_II_Properties_of_Estimators
+Confidence intervals for the MLE,"θ̂ ± z_{α/2}·ŝe, where ŝe = 1/√(nI(θ̂)) is based on the Fisher information.",Parametric_Inference_II_Properties_of_Estimators
+Fisher information,I(θ) = Var(score) = −E[∂² log f(X;θ)/∂θ²]. Measures the curvature of the log-likelihood (how much information the data carry about θ); for n IID observations In(θ) = nI(θ).,Parametric_Inference_II_Properties_of_Estimators
+Delta method,"If τ = g(θ) with g'(θ) ≠ 0, then se(τ̂) ≈ |g'(θ̂)|·se(θ̂) and τ̂ is approximately Normal. Used to get standard errors and intervals for transformed parameters.",Parametric_Inference_II_Properties_of_Estimators
+Multiparameter models and the Fisher information matrix,I_jk(θ) = −E[∂²ℓ/∂θ_j∂θ_k]. The covariance of the MLE is approximately the inverse of the Fisher information matrix; the multivariate delta method uses the gradient of g.,Parametric_Inference_II_Properties_of_Estimators
+Sufficiency,A statistic T(X) is sufficient for θ if the distribution of the data given T does not depend on θ: T captures all information about θ. Checked via the factorization theorem.,Parametric_Inference_II_Properties_of_Estimators
+Cross-entropy loss and maximum likelihood estimation,Minimizing the cross-entropy between the empirical data distribution and the model is the same as maximizing the log-likelihood; e.g. classification cross-entropy loss is the negative log-likelihood.,Parametric_Inference_II_Properties_of_Estimators
+EM algorithm for latent variable models,"Iteratively maximizes the likelihood when some variables are latent. E-step: compute expected complete-data log-likelihood under the current posterior of the latents. M-step: maximize it over θ. The likelihood never decreases, but it may converge to a local optimum.",Parametric_Inference_II_Properties_of_Estimators
+Hypotheses,The null hypothesis H0 (default claim) and the alternative H1. Testing asks whether the data provide enough evidence to reject H0.,Hypothesis_Testing_and_𝑝_values
+Type I error,Rejecting H0 when H0 is true (false positive).,Hypothesis_Testing_and_𝑝_values
+Type II error,Failing to reject H0 when H0 is false (false negative).,Hypothesis_Testing_and_𝑝_values
+Size and level,Size = sup over θ in H0 of P_θ(reject H0). A test has level α if its size is at most α.,Hypothesis_Testing_and_𝑝_values
+p-value,"The probability, assuming H0 is true, of a test statistic at least as extreme as the one observed; equivalently the smallest α at which the test rejects. It is not the probability that H0 is true.",Hypothesis_Testing_and_𝑝_values
+Power,β(θ) = P_θ(reject H0). The probability of correctly rejecting H0 when the alternative holds; equals 1 − P(Type II error).,Hypothesis_Testing_and_𝑝_values
+Wald test,Reject H0: θ = θ0 if |W| = |θ̂ − θ0|/ŝe > z_{α/2}. Relies on the asymptotic Normality of the estimator.,Hypothesis_Testing_and_𝑝_values
+Permutation test,Builds the null distribution by permuting labels/data (valid when the data are exchangeable under H0); the p-value is the fraction of permutations with a statistic at least as extreme as the observed one.,Hypothesis_Testing_and_𝑝_values
+Likelihood ratio test,Statistic λ = 2 log[sup_Θ L(θ) / sup_Θ0 L(θ)]. Under H0 it is approximately χ² with degrees of freedom equal to the difference in numbers of free parameters (Wilks' theorem).,Hypothesis_Testing_and_𝑝_values
+Multiple testing,"Running many tests at once inflates the chance of at least one false positive, so corrections are needed.",Hypothesis_Testing_and_𝑝_values
+Bonferroni correction,Reject H_i if p_i < α/m (m = number of tests). Controls the family-wise error rate at α; conservative.,Hypothesis_Testing_and_𝑝_values
+False discovery rate,FDR = E[number of false rejections / number of rejections]: the expected proportion of rejected hypotheses that are false discoveries.,Hypothesis_Testing_and_𝑝_values
+Benjamini–Hochberg method,"Sort p-values p_(1) ≤ … ≤ p_(m), find the largest i with p_(i) ≤ iα/m, and reject all hypotheses up to i. Controls the FDR at α (under independence or positive dependence).",Hypothesis_Testing_and_𝑝_values
+Adjusted p-values,"p-values modified for multiple testing so that comparing them to α gives the desired error control (e.g. Bonferroni: min(m·p, 1)).",Hypothesis_Testing_and_𝑝_values
+Strengths and weaknesses of null-hypothesis significance testing,"Strengths: simple, standardized, controls error rates. Weaknesses: p-values often misinterpreted; statistical significance ≠ practical importance; depends heavily on n; encourages yes/no thinking and p-hacking; gives no effect size or probability of hypotheses.",Hypothesis_Testing_and_𝑝_values
+Prior and posterior distributions,The prior π(θ) encodes beliefs about θ before seeing data. The posterior p(θ|x) ∝ L(θ)π(θ) is the updated belief after observing data.,Bayesian_Inference_and_Statistical_Decision_Theory
+Bayesian method,"Choose a model and prior, observe data, compute the posterior with Bayes' theorem, then summarize it and make predictions or decisions from it.",Bayesian_Inference_and_Statistical_Decision_Theory
+Posterior summaries: point estimates and credible intervals,"Point estimates: posterior mean, median, or mode (MAP). A 1−α credible interval C satisfies P(θ ∈ C | data) = 1−α.",Bayesian_Inference_and_Statistical_Decision_Theory
+Types of priors,"Informative, weakly informative, noninformative/flat, conjugate (posterior is in the same family as the prior) and improper (does not integrate to 1).",Bayesian_Inference_and_Statistical_Decision_Theory
+Loss functions,"L(θ, θ̂) measures the cost of estimating θ by θ̂. Examples: squared error, absolute error, 0–1 loss.",Bayesian_Inference_and_Statistical_Decision_Theory
+Risk,"R(θ, θ̂) = E_θ[L(θ, θ̂(X))]: expected loss over repeated data sets. The Bayes risk averages R over the prior.",Bayesian_Inference_and_Statistical_Decision_Theory
+Bayes and minimax estimators,"A Bayes estimator minimizes the Bayes risk (equivalently the posterior expected loss; the posterior mean under squared error). A minimax estimator minimizes the worst-case risk sup_θ R(θ, θ̂).",Bayesian_Inference_and_Statistical_Decision_Theory
+Admissibility,An estimator is inadmissible if another estimator has risk no larger for all θ and strictly smaller for some θ; otherwise it is admissible.,Bayesian_Inference_and_Statistical_Decision_Theory
+Linear regression,"Models the mean of Y as a linear function of predictors: Y = β0 + β1X1 + … + ε, with E[ε] = 0.",Linear_and_Logistic_Regression
+Least squares estimation and connection to MLE,Choose β to minimize Σ(Yi − Xiᵀβ)². This coincides with the MLE when the errors are IID Normal.,Linear_and_Logistic_Regression
+Multiple regression and matrix formulation,Y = Xβ + ε with design matrix X. The least squares estimate is β̂ = (XᵀX)⁻¹XᵀY.,Linear_and_Logistic_Regression
+Interpreting coefficients (holding others constant),"βj is the expected change in Y for a one-unit increase in Xj with all other predictors held fixed. It describes association, not necessarily causation.",Linear_and_Logistic_Regression
+Interaction terms,Product terms such as X1·X2 that let the effect of one predictor depend on the value of another.,Linear_and_Logistic_Regression
+Confidence intervals and hypothesis tests for parameters,CI: β̂j ± t·se(β̂j). The t-test of H0: βj = 0 uses t = β̂j/se(β̂j).,Linear_and_Logistic_Regression
+Variable selection in multiple regression,"Choosing which predictors to include, balancing fit against complexity and overfitting.",Linear_and_Logistic_Regression
+Prediction risk,"Expected squared prediction error on new data. The training error underestimates it, so it must be estimated (Cp, AIC, BIC, cross-validation).",Linear_and_Logistic_Regression
+Mallows' Cp,An estimate of prediction risk: training RSS plus a penalty 2kσ̂² for the k fitted parameters. Lower is better.,Linear_and_Logistic_Regression
+AIC,Akaike information criterion: −2ℓ(θ̂) + 2k (k = number of parameters). Penalizes complexity; aims at good prediction.,Linear_and_Logistic_Regression
+BIC,"Bayesian information criterion: −2ℓ(θ̂) + k·log n. A stronger penalty than AIC, so it prefers simpler models.",Linear_and_Logistic_Regression
+Cross-validation,Split data into folds; repeatedly fit on some folds and measure prediction error on the held-out fold; average the errors. Leave-one-out is the extreme case.,Linear_and_Logistic_Regression
+Forward and backward search,Greedy variable selection. Forward: start empty and add the predictor that most improves the criterion. Backward: start with all predictors and drop the least useful one.,Linear_and_Logistic_Regression
+Standardized coefficients,"Coefficients obtained after scaling predictors to mean 0 and standard deviation 1, making their magnitudes comparable across predictors.",Linear_and_Logistic_Regression
+Assumptions and diagnostics (residual plots),"Assumptions: linearity, independent errors, constant variance (homoscedasticity), Normal errors. Residual plots (e.g. residuals vs fitted values) reveal curvature, non-constant variance and outliers.",Linear_and_Logistic_Regression
+Logistic regression,For binary outcomes: logit P(Y=1|x) = log(p/(1−p)) = β0 + βᵀx. Fit by maximum likelihood; coefficients are log odds ratios.,Linear_and_Logistic_Regression
+MCMC sampling from posterior distributions,"Constructs a Markov chain whose stationary distribution is the posterior; the (correlated) draws approximate posterior expectations. Examples: Metropolis–Hastings, Hamiltonian Monte Carlo/NUTS.",Practical_Bayesian_Inference_via_Probabilistic_Programming
+Trace plots,"Plots of sampled values against iteration for each chain. Healthy chains look stationary (""fuzzy caterpillar"") and multiple chains overlap.",Practical_Bayesian_Inference_via_Probabilistic_Programming
+R-hat (R̂),Convergence diagnostic comparing between-chain and within-chain variance across multiple chains. Values close to 1 (e.g. < 1.01) indicate convergence.,Practical_Bayesian_Inference_via_Probabilistic_Programming
+ESS (effective sample size),The number of independent draws that would carry the same information as the autocorrelated MCMC sample. Low ESS means noisy estimates.,Practical_Bayesian_Inference_via_Probabilistic_Programming
+Implementing probabilistic models in PyMC,"PyMC is a Python probabilistic programming library: declare priors and the likelihood in a model context, then run MCMC (NUTS by default) to sample the posterior.",Practical_Bayesian_Inference_via_Probabilistic_Programming
+Prior predictive checks,"Simulate data from the prior and likelihood before fitting, to check that the priors imply plausible data.",Practical_Bayesian_Inference_via_Probabilistic_Programming
+Posterior analysis,"Summarizing and checking posterior samples: means, credible intervals, posterior plots and posterior predictive checks.",Practical_Bayesian_Inference_via_Probabilistic_Programming
+Bayesian model comparison,"Comparing models by marginal likelihood (Bayes factors) or by out-of-sample predictive performance (ELPD, LOO).",Practical_Bayesian_Inference_via_Probabilistic_Programming
+ℳ-closed (Bayes factors),"Setting where the true model is assumed to be among the candidates. Models are compared by the Bayes factor, the ratio of marginal likelihoods p(D|M1)/p(D|M2).",Practical_Bayesian_Inference_via_Probabilistic_Programming
+ℳ-open (ELPD),"Setting where the true model is not among the candidates. Models are compared by predictive accuracy: ELPD, the expected log predictive density on new data.",Practical_Bayesian_Inference_via_Probabilistic_Programming
+LOO cross-validation for ELPD,"Estimates ELPD from leave-one-out predictive densities, efficiently approximated from a single fit with Pareto-smoothed importance sampling (PSIS-LOO).",Practical_Bayesian_Inference_via_Probabilistic_Programming
+Normal-Normal model,Normal likelihood (known variance) with a Normal prior on the mean gives a Normal posterior (conjugate). The posterior mean is a precision-weighted average of prior mean and sample mean.,Practical_Bayesian_Inference_via_Probabilistic_Programming
+Dirichlet-Categorical model,Categorical likelihood with a Dirichlet prior on the probabilities gives a Dirichlet posterior: observed counts are added to the prior concentration parameters.,Practical_Bayesian_Inference_via_Probabilistic_Programming
+Causality and correlation,Association does not imply causation: it can arise from confounding or reverse causation. Causal questions ask what happens under an intervention.,Causal_Inference
+Do-operation,"do(X = x) denotes intervening to set X to x, which differs from conditioning on observing X = x. In general P(Y | do(X=x)) ≠ P(Y | X=x).",Causal_Inference
+Causal graphical models,"Directed acyclic graphs whose arrows are direct causal effects. They encode conditional independencies and clarify confounders, mediators and colliders.",Causal_Inference
+Counterfactual model,"Each unit has potential outcomes Y(1) and Y(0) under treatment and control, but only one of them is ever observed.",Causal_Inference
+Average causal effect and association,Average causal effect θ = E[Y(1)] − E[Y(0)]. Association α = E[Y|X=1] − E[Y|X=0]. In general θ ≠ α.,Causal_Inference
+Randomization,"Randomly assigning treatment makes X independent of the potential outcomes, so association equals the causal effect.",Causal_Inference
+Conditional causal effect,The causal effect within a subgroup defined by covariates Z: E[Y(1) − Y(0) | Z = z].,Causal_Inference
+Causal regression function,"θ(x) = E[Y(x)], the mean outcome if everyone were set to X = x. Equals E[Y|X=x] under randomization.",Causal_Inference
+Observational studies and confounding,"In observational studies treatment is not randomized. A confounder affects both treatment and outcome, biasing naive comparisons.",Causal_Inference
+No unmeasured confounding,"Assumption that, given measured covariates Z, treatment is independent of the potential outcomes: (Y(0), Y(1)) ⫫ X | Z.",Causal_Inference
+Adjusted treatment effect and adjustment by regression,"Under no unmeasured confounding, θ = ∫ (E[Y|X=1,Z=z] − E[Y|X=0,Z=z]) dF(z). Regression adjustment fits Y on X and Z; the coefficient of X estimates the causal effect if the model is right and there is no unmeasured confounding.",Causal_Inference
+Simpson's paradox and its resolution,A trend in the aggregate data reverses within subgroups because of a confounder. Resolved by using the causal structure to decide whether to adjust for (condition on) the variable.,Causal_Inference
+Sources of missing data,"Nonresponse, dropout, measurement or device failure, data entry errors, censoring, and design choices.",Missing_Data
+Missing data mechanisms,"How the probability of missingness relates to the data: MCAR, MAR or MNAR.",Missing_Data
+Missing completely at random (MCAR),Missingness is independent of both observed and unobserved data.,Missing_Data
+Missing at random (MAR),"Missingness depends only on observed data, not on the missing values themselves.",Missing_Data
+Missing not at random (MNAR),"Missingness depends on the unobserved values themselves, even after accounting for observed data.",Missing_Data
+Ignorability,"The missingness mechanism can be ignored for inference (e.g. MAR and mechanism parameters distinct from model parameters), so we need not model it.",Missing_Data
+Complete case analysis,"Drop all rows with any missing values. Unbiased under MCAR but wasteful, and potentially biased otherwise.",Missing_Data
+Imputation,"Fill in missing values (mean, regression, hot-deck, multiple imputation). Single imputation understates uncertainty; multiple imputation propagates it.",Missing_Data
+Weighting,Weight observed cases by the inverse of their probability of being observed so they represent the full sample. Works under MAR.,Missing_Data
+Model-based procedures,"Specify a joint model for data (and possibly missingness) and use likelihood or Bayesian inference, treating missing values as latent (e.g. with EM).",Missing_Data
+Importance of data collection,Conclusions are limited by how the data were collected; no analysis can rescue badly collected data.,Experimental_and_Survey_Design
+Survey design,Planning how to select a sample from a population so that population quantities can be estimated accurately.,Experimental_and_Survey_Design
+Target population vs. sampling frame,Target population: everyone we want to learn about. Sampling frame: the list from which the sample is actually drawn. A mismatch causes coverage error.,Experimental_and_Survey_Design
+Basic sampling methods,"Simple random, stratified, cluster and systematic sampling (probability samples), versus convenience sampling (non-probability).",Experimental_and_Survey_Design
+Panels,"The same respondents are surveyed repeatedly over time. Good for tracking change, but subject to attrition and conditioning effects.",Experimental_and_Survey_Design
+Respondents vs. nonrespondents,"Nonrespondents often differ systematically from respondents, leading to nonresponse bias.",Experimental_and_Survey_Design
+Postsurvey adjustments,"Weighting, poststratification, raking or imputation to correct for nonresponse and for sample/population imbalances.",Experimental_and_Survey_Design
+Survey question design,"Wording, order and response options influence answers (leading or double-barreled questions, social desirability bias).",Experimental_and_Survey_Design
+Experimental design basics,"Randomized assignment, control groups, replication and blinding, so that treatment effects can be isolated.",Experimental_and_Survey_Design
+Experimental design goals and pitfalls,"Goals: valid causal inference and precision. Pitfalls: confounding, small samples, noncompliance, lack of blinding, multiple comparisons, p-hacking.",Experimental_and_Survey_Design
+Within-subject design,"Each participant receives all conditions. Removes between-person variability, but risks carryover and order effects.",Experimental_and_Survey_Design
+Between-subject design,"Each participant receives only one condition. No carryover effects, but needs more participants.",Experimental_and_Survey_Design
+Factorial designs and reduced variants,Cross all levels of several factors to estimate main effects and interactions. Fractional factorial designs run only a subset of the combinations when there are many factors.,Experimental_and_Survey_Design
+Power analysis,Determines the sample size needed to detect an effect of a given size with a chosen power (e.g. 80%) at significance level α.,Experimental_and_Survey_Design
+Type S and Type M errors,Type S (sign): the estimate has the wrong sign. Type M (magnitude): the effect size is exaggerated. Both are common among significant results from underpowered studies.,Experimental_and_Survey_Design
